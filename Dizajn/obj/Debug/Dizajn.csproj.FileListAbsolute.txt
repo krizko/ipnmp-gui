@@ -1,0 +1,5 @@
+D:\SQL\2b. letnik poletni semester\SP\Projekt\Dizajn\Dizajn\bin\Dizajn.dll
+D:\SQL\2b. letnik poletni semester\SP\Projekt\Dizajn\Dizajn\bin\Dizajn.pdb
+D:\SQL\2b. letnik poletni semester\SP\Projekt\Dizajn\Dizajn\obj\Debug\ResolveAssemblyReference.cache
+D:\SQL\2b. letnik poletni semester\SP\Projekt\Dizajn\Dizajn\obj\Debug\Dizajn.dll
+D:\SQL\2b. letnik poletni semester\SP\Projekt\Dizajn\Dizajn\obj\Debug\Dizajn.pdb
