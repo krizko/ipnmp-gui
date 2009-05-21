@@ -20,7 +20,6 @@ namespace Dizajn
             if (Page.Request.QueryString.Count == 0)
             {
                 MultiView.SetActiveView(ViewPregled);
-                Repeater1.DataSource
             }
             else
             {
