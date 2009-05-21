@@ -33,8 +33,7 @@
                 <td>FERI</td>
             </tr>
         </table>--%>
-        <asp:Repeater ID="Repeater1" runat="server" 
-            onitemcommand="Repeater1_ItemCommand">
+        <asp:Repeater ID="Repeater1" runat="server">
             <HeaderTemplate>
                 <table border="1" width="100%">
                     <tr>
@@ -48,9 +47,9 @@
             <ItemTemplate>
             <tr>
                 <td><%# DataBinder.Eval(Container.DataItem, "Datum") %></td>
-                <td><%# DataBinder.Eval(Container.DataItem, "Ponesrecenec") %></td>
-                <td><%# DataBinder.Eval(Container.DataItem, "Zdravnik") %></td>
-                <td><%# DataBinder.Eval(Container.DataItem, "Kraj") %></td>
+                <td><%# DataBinder.Eval(Container.DataItem, "Avtor") %></td>
+                <td><%# DataBinder.Eval(Container.DataItem, "StevilkaPorocila") %></td>
+                <td><%# DataBinder.Eval(Container.DataItem, "OpisDogodka") %></td>
             </tr>
             </ItemTemplate>
 
@@ -72,39 +71,39 @@
                 <table width="100%">
                     <tr>
                         <td><asp:Label ID="Datum" runat="server" Text="Datum"></asp:Label></td>
-                        <td><asp:TextBox ID="TextBox5" runat="server"></asp:TextBox></td>
+                        <td><asp:TextBox ID="UrediDatumBox" runat="server"></asp:TextBox></td>
                     </tr>
                     <tr>
                         <td><asp:Label ID="Kraj" runat="server" Text="Kraj"></asp:Label></td>
-                        <td><asp:TextBox ID="TextBox1" runat="server"></asp:TextBox></td>
+                        <td><asp:TextBox ID="UrediKrajBox" runat="server"></asp:TextBox></td>
                     </tr>
                     <tr>
                         <td><asp:Label ID="Ponesrecenec" runat="server" Text="Ponesrečenec"></asp:Label></td>
-                        <td><asp:TextBox ID="TextBox2" runat="server"></asp:TextBox></td>
+                        <td><asp:TextBox ID="UrediPonesrecenecBox" runat="server"></asp:TextBox></td>
                     </tr>
                     <tr>
                         <td><asp:Label ID="Zdravnik" runat="server" Text="Zdravnik"></asp:Label></td>
-                        <td><asp:TextBox ID="TextBox3" runat="server"></asp:TextBox></td>
+                        <td><asp:TextBox ID="UrediZdravnikBox" runat="server"></asp:TextBox></td>
                     </tr>
                     <tr>
                         <td><asp:Label ID="Stanje_opr" runat="server" Text="Stanje ob prihodu NMP"></asp:Label></td>
-                        <td><asp:TextBox ID="TextBox4" runat="server"></asp:TextBox></td>
+                        <td><asp:TextBox ID="UrediPrihodBox" runat="server"></asp:TextBox></td>
                     </tr>
                     <tr>
                         <td><asp:Label ID="Stanje_ob_sprejetju" runat="server" Text="Stanje ob sprejemu"></asp:Label></td>
-                        <td><asp:TextBox ID="TextBox6" runat="server"></asp:TextBox></td>
+                        <td><asp:TextBox ID="UrediSprejemBox" runat="server"></asp:TextBox></td>
                     </tr>
                     <tr>
-                        <td><asp:Label ID="Label6" runat="server" Text="Datum"></asp:Label></td>
-                        <td><asp:TextBox ID="TextBox7" runat="server"></asp:TextBox></td>
+                        <td><asp:Label ID="Label6" runat="server" Text="Datum Sprejema"></asp:Label></td>
+                        <td><asp:TextBox ID="UrediDatumSprejemaBox" runat="server"></asp:TextBox></td>
                     </tr>
                     <tr>
                         <td><asp:Label ID="Opis" runat="server" Text="Opis dogodka:"></asp:Label></td>
-                        <td><asp:TextBox ID="TextBox8" runat="server" Height="204px" Width="95%"></asp:TextBox></td>
+                        <td><asp:TextBox ID="UrediOpisBox" runat="server" Height="204px" Width="95%"></asp:TextBox></td>
                     </tr>
                     <tr>
                         <td><asp:Label ID="Akcije" runat="server" Text="Akcije:"></asp:Label></td>
-                        <td><asp:TextBox ID="TextBox9" runat="server" Height="204px" Width="95%"></asp:TextBox></td>
+                        <td><asp:TextBox ID="UrediAkcijeBox" runat="server" Height="204px" Width="95%"></asp:TextBox></td>
                     </tr>
                 </table>
             </form>
