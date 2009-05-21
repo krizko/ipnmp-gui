@@ -19,56 +19,76 @@ namespace Dizajn
         protected int _EMSO;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Page.Request.QueryString.Count == 2 &&
-                Page.Request.QueryString.GetKey(0) == "a" &&
-                Page.Request.QueryString.Get(0) == "iscemKartoteke" &&
-                Page.Request.QueryString.GetKey(1) == "iskalniNiz" &&
-                Page.Request.QueryString.Get(1) != "")
-            {
+            IPNMP.Pacient[] pacienti = new IPNMP.Pacient[1];
+
+            if (Page.Request.QueryString["a"] == "iscemKartoteke" && Page.Request.QueryString["iskalniNiz"] != "") {
                 /* Tukaj dobimo niz in ga vržemo bazi, da najde kartoteke. */
-                iskalniNiz.Text = Page.Request.QueryString.Get(1).ToString();
+                iskalniNiz.Text = Page.Request.QueryString["iskalniNiz"].ToString();
                 infoNiz.Text = "";
-                if (int.TryParse(Page.Request.QueryString.Get(1), out _EMSO))
+                if (int.TryParse(Page.Request.QueryString["iskalniNiz"], out _EMSO))
                 {
                     /* Iščem po emšu */
                     infoNiz.Text = "EMŠO";
+                    pacienti[0] = IPNMP.Pacient.VrniPoEmšo(_EMSO.ToString());
                 }
                 else
                 {
                     /* Iščem po nizu */
-                    String niz = Page.Request.QueryString.Get(1).ToString();
+                    String niz = Page.Request.QueryString["iskalniNiz"];
                     infoNiz.Text = "Ime/Priimek";
+                    pacienti = IPNMP.Pacient.VrniVsePoImenu(niz, "");
+
                 }
                 /* V primeru da je rezultat 0 vrstic lahko prikažemo error */
-                //pogledi.SetActiveView(niKartotek);
-                /* Sicer pa rezultate */
-                pogledi.SetActiveView(rezultati);
+                if (pacienti.Length == 0)
+                {
+                    pogledi.SetActiveView(niKartotek);
+                }
+                else if (pacienti.Length == 1)
+                {
+                    // Prikazi samo ce je uspesno pridobil pacienta po emsu
+                    if (pacienti[0] != null)
+                        polniPrikazKartoteke(pacienti[0]);
+                    else
+                        pogledi.SetActiveView(niKartoteke);
+                }
+                else
+                {
+                    /* Sicer pa rezultate */
+                    ponavljalec1.DataSource = pacienti;
+                    ponavljalec1.DataBind();
+                    pogledi.SetActiveView(rezultati);
+                }
             }
-            else if (Page.Request.QueryString.Count == 2 &&
-                Page.Request.QueryString.GetKey(0) == "a" &&
-                Page.Request.QueryString.Get(0) == "prikaziKartoteko" &&
-                Page.Request.QueryString.GetKey(1) == "id" &&
-                int.TryParse(Page.Request.QueryString.Get(1), out _ID))
+            else if (Page.Request.QueryString["a"] == "prikaziKartoteko" &&
+                int.TryParse(Page.Request.QueryString["EMSO"], out _EMSO))
             {
-                /* Tukaj dobimo kartoteko in jo prikažemo. */
-                /* Zaenkrat lahko prikažemo teh nekaj podatkov... kar pripnemo tekst k tem labelam. */
-                /*ImePacienta.Text = "";
-                PriimekPacienta.Text = "";
-                NaslovPacienta.Text = "";
-                PostaPacienta.Text = "";
-                DatumRojstvaPacienta.Text = "";
-                EmsoPacienta.Text = "";
-                KrvnaSkupinaPacienta.Text = "";*/
-
-                /* V primeru, da baza vrne da takšne kartoteke ni, lahko prikažemo error */
-                //pogledi.SetActiveView(niKartoteke);
-                /* Sicer pa kartoteko */
-                pogledi.SetActiveView(kratoteka);
+                pacienti[0] = IPNMP.Pacient.VrniPoEmšo(_EMSO.ToString());
+                // Prikazi samo ce je uspesno pridobil pacienta po emsu
+                if (pacienti[0] != null)
+                    polniPrikazKartoteke(pacienti[0]);
+                else
+                    pogledi.SetActiveView(niKartoteke);
             }
             else
             {
                 pogledi.SetActiveView(intro);
             }
+        }
+        public void polniPrikazKartoteke(IPNMP.Pacient pacient)
+        {
+            /* Tukaj dobimo kartoteko in jo prikažemo. */
+            /* Zaenkrat lahko prikažemo teh nekaj podatkov... kar pripnemo tekst k tem labelam. */
+            ImePacienta.Text = pacient.Ime;
+            PriimekPacienta.Text = pacient.Priimek;
+            NaslovPacienta.Text = pacient.Naslov.Ulica + " " + pacient.Naslov.HišnaŠtevilka;
+            PostaPacienta.Text = pacient.Naslov.PoštnaŠtevilka + " " + pacient.Naslov.Mesto;
+            DatumRojstvaPacienta.Text = pacient.DatumRojstva.ToString();
+            EmsoPacienta.Text = pacient.EMŠO;
+            KrvnaSkupinaPacienta.Text = pacient.KrvnaSkupina;
+
+            /* Sicer pa kartoteko */
+            pogledi.SetActiveView(kratoteka);
         }
     }
 }
