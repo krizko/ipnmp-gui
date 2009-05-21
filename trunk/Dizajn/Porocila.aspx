@@ -64,51 +64,91 @@
     
     
     
-    <asp:View ID="ViewUrediDodaj" runat="server">
-        <h1>Poročila</h1>
-        <div>
-            <form id="form2" runat="server">
+    <asp:View ID="NiPorocil" runat="server">
+        <asp:Label ID="Label7" runat="server" Text="Žal trenutno ni poročil!"></asp:Label>
+    </asp:View>
+        <asp:View ID="ViewUrediDodaj" runat="server">
+            <h1>
+                Poročila</h1>
+            <div>
+                <form ID="form2" runat="server">
                 <table width="100%">
                     <tr>
-                        <td><asp:Label ID="Datum" runat="server" Text="Datum"></asp:Label></td>
-                        <td><asp:TextBox ID="UrediDatumBox" runat="server"></asp:TextBox></td>
+                        <td>
+                            <asp:Label ID="Datum" runat="server" Text="Datum"></asp:Label>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="UrediDatumBox" runat="server"></asp:TextBox>
+                        </td>
                     </tr>
                     <tr>
-                        <td><asp:Label ID="Kraj" runat="server" Text="Kraj"></asp:Label></td>
-                        <td><asp:TextBox ID="UrediKrajBox" runat="server"></asp:TextBox></td>
+                        <td>
+                            <asp:Label ID="Kraj" runat="server" Text="Kraj"></asp:Label>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="UrediKrajBox" runat="server"></asp:TextBox>
+                        </td>
                     </tr>
                     <tr>
-                        <td><asp:Label ID="Ponesrecenec" runat="server" Text="Ponesrečenec"></asp:Label></td>
-                        <td><asp:TextBox ID="UrediPonesrecenecBox" runat="server"></asp:TextBox></td>
+                        <td>
+                            <asp:Label ID="Ponesrecenec" runat="server" Text="Ponesrečenec"></asp:Label>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="UrediPonesrecenecBox" runat="server"></asp:TextBox>
+                        </td>
                     </tr>
                     <tr>
-                        <td><asp:Label ID="Zdravnik" runat="server" Text="Zdravnik"></asp:Label></td>
-                        <td><asp:TextBox ID="UrediZdravnikBox" runat="server"></asp:TextBox></td>
+                        <td>
+                            <asp:Label ID="Zdravnik" runat="server" Text="Zdravnik"></asp:Label>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="UrediZdravnikBox" runat="server"></asp:TextBox>
+                        </td>
                     </tr>
                     <tr>
-                        <td><asp:Label ID="Stanje_opr" runat="server" Text="Stanje ob prihodu NMP"></asp:Label></td>
-                        <td><asp:TextBox ID="UrediPrihodBox" runat="server"></asp:TextBox></td>
+                        <td>
+                            <asp:Label ID="Stanje_opr" runat="server" Text="Stanje ob prihodu NMP"></asp:Label>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="UrediPrihodBox" runat="server"></asp:TextBox>
+                        </td>
                     </tr>
                     <tr>
-                        <td><asp:Label ID="Stanje_ob_sprejetju" runat="server" Text="Stanje ob sprejemu"></asp:Label></td>
-                        <td><asp:TextBox ID="UrediSprejemBox" runat="server"></asp:TextBox></td>
+                        <td>
+                            <asp:Label ID="Stanje_ob_sprejetju" runat="server" Text="Stanje ob sprejemu"></asp:Label>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="UrediSprejemBox" runat="server"></asp:TextBox>
+                        </td>
                     </tr>
                     <tr>
-                        <td><asp:Label ID="Label6" runat="server" Text="Datum Sprejema"></asp:Label></td>
-                        <td><asp:TextBox ID="UrediDatumSprejemaBox" runat="server"></asp:TextBox></td>
+                        <td>
+                            <asp:Label ID="Label6" runat="server" Text="Datum Sprejema"></asp:Label>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="UrediDatumSprejemaBox" runat="server"></asp:TextBox>
+                        </td>
                     </tr>
                     <tr>
-                        <td><asp:Label ID="Opis" runat="server" Text="Opis dogodka:"></asp:Label></td>
-                        <td><asp:TextBox ID="UrediOpisBox" runat="server" Height="204px" Width="95%"></asp:TextBox></td>
+                        <td>
+                            <asp:Label ID="Opis" runat="server" Text="Opis dogodka:"></asp:Label>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="UrediOpisBox" runat="server" Height="204px" Width="95%"></asp:TextBox>
+                        </td>
                     </tr>
                     <tr>
-                        <td><asp:Label ID="Akcije" runat="server" Text="Akcije:"></asp:Label></td>
-                        <td><asp:TextBox ID="UrediAkcijeBox" runat="server" Height="204px" Width="95%"></asp:TextBox></td>
+                        <td>
+                            <asp:Label ID="Akcije" runat="server" Text="Akcije:"></asp:Label>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="UrediAkcijeBox" runat="server" Height="204px" Width="95%"></asp:TextBox>
+                        </td>
                     </tr>
                 </table>
-            </form>
-        </div>
-    </asp:View>
+                </form>
+            </div>
+        </asp:View>
 </asp:MultiView>
 </asp:Content>
 

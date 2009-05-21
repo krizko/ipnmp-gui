@@ -21,12 +21,18 @@ namespace Dizajn
             // Seznam poročil
             if(Page.Request.QueryString.Count == 0)
             {
-                IPNMP.Poročilo[] Porocila = new IPNMP.Poročilo[10];//IPNMP.Poročilo.VrniVsaPorocila();
+                IPNMP.Poročilo[] porocila = IPNMP.Poročilo.VrniVsaPorocila();
+                if (porocila.Length == 0)
+                {
+                    MultiView.SetActiveView(NiPorocil);
+                }
+                else
+                {
+                    Repeater1.DataSource = porocila;
+                    Repeater1.DataBind();
 
-                Repeater1.DataSource = Porocila;
-                Repeater1.DataBind();
-                
-                MultiView.SetActiveView(ViewPregled);
+                    MultiView.SetActiveView(ViewPregled);
+                }
             }
             else
             {
