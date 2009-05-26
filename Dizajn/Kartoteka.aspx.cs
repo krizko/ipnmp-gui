@@ -29,14 +29,14 @@ namespace Dizajn
                 {
                     /* Iščem po emšu */
                     infoNiz.Text = "EMŠO";
-                    pacienti[0] = IPNMP.Pacient.VrniPoEmšo(_EMSO.ToString());
+                    //pacienti[0] = IPNMP.Pacient.VrniPoEmšo(_EMSO.ToString());
                 }
                 else
                 {
                     /* Iščem po nizu */
                     String niz = Page.Request.QueryString["iskalniNiz"];
                     infoNiz.Text = "Ime/Priimek";
-                    pacienti = IPNMP.Pacient.VrniVsePoImenu(niz, "");
+                    //pacienti = IPNMP.Pacient.VrniVsePoImenu(niz, "");
 
                 }
                 /* V primeru da je rezultat 0 vrstic lahko prikažemo error */
@@ -63,7 +63,7 @@ namespace Dizajn
             else if (Page.Request.QueryString["a"] == "prikaziKartoteko" &&
                 int.TryParse(Page.Request.QueryString["EMSO"], out _EMSO))
             {
-                pacienti[0] = IPNMP.Pacient.VrniPoEmšo(_EMSO.ToString());
+                //pacienti[0] = IPNMP.Pacient.VrniPoEmšo(_EMSO.ToString());
                 // Prikazi samo ce je uspesno pridobil pacienta po emsu
                 if (pacienti[0] != null)
                     polniPrikazKartoteke(pacienti[0]);
@@ -82,9 +82,9 @@ namespace Dizajn
             ImePacienta.Text = pacient.Ime;
             PriimekPacienta.Text = pacient.Priimek;
             NaslovPacienta.Text = pacient.Naslov.Ulica + " " + pacient.Naslov.HišnaŠtevilka;
-            PostaPacienta.Text = pacient.Naslov.PoštnaŠtevilka + " " + pacient.Naslov.Mesto;
+            //PostaPacienta.Text = pacient.Naslov.PoštnaŠtevilka + " " + pacient.Naslov.Mesto;
             DatumRojstvaPacienta.Text = pacient.DatumRojstva.ToString();
-            EmsoPacienta.Text = pacient.EMŠO;
+            //EmsoPacienta.Text = pacient.EMŠO;
             KrvnaSkupinaPacienta.Text = pacient.KrvnaSkupina;
 
             /* Sicer pa kartoteko */

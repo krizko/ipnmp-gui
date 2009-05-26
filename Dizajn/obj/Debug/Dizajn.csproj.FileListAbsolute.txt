@@ -10,3 +10,8 @@ C:\Documents and Settings\Igorbum\Desktop\Dizajn\Dizajn\Dizajn\bin\IPNMP.pdb
 C:\Documents and Settings\Igorbum\Desktop\Dizajn\Dizajn\Dizajn\obj\Debug\ResolveAssemblyReference.cache
 C:\Documents and Settings\Igorbum\Desktop\Dizajn\Dizajn\Dizajn\obj\Debug\Dizajn.dll
 C:\Documents and Settings\Igorbum\Desktop\Dizajn\Dizajn\Dizajn\obj\Debug\Dizajn.pdb
+D:\SQL\2b. letnik poletni semester\SP\Projekt\Dizajn\obj\Debug\ResolveAssemblyReference.cache
+D:\SQL\2b. letnik poletni semester\SP\Projekt\Dizajn\obj\Debug\Dizajn.dll
+D:\SQL\2b. letnik poletni semester\SP\Projekt\Dizajn\bin\Dizajn.dll
+D:\SQL\2b. letnik poletni semester\SP\Projekt\Dizajn\bin\Dizajn.pdb
+D:\SQL\2b. letnik poletni semester\SP\Projekt\Dizajn\obj\Debug\Dizajn.pdb
