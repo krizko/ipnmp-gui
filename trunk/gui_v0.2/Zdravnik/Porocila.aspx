@@ -1,12 +1,12 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Master/DizajnWithSideBar.Master" AutoEventWireup="true" CodeFile="Porocila.aspx.cs" Inherits="Dizajn.Porocila" Title="Untitled Page" %>
 <asp:Content ID="Content3" ContentPlaceHolderID="METAHOLDER" runat="server">
-<script type="text/javascript" src="../jquery.js"></script>
-<script type='text/javascript' src='../jquery.bgiframe.min.js'></script>
-<script type='text/javascript' src='../jquery.ajaxQueue.js'></script>
-<script type='text/javascript' src='../thickbox-compressed.js'></script>
-<script type='text/javascript' src='../jquery.autocomplete.js'></script>
-<link rel="stylesheet" type="text/css" href="../jquery.autocomplete.css" />
-<link rel="stylesheet" type="text/css" href="../thickbox.css" />
+<script type="text/javascript" src="../css/jquery.js"></script>
+<script type='text/javascript' src='../css/jquery.bgiframe.min.js'></script>
+<script type='text/javascript' src='../css/jquery.ajaxQueue.js'></script>
+<script type='text/javascript' src='../css/thickbox-compressed.js'></script>
+<script type='text/javascript' src='../css/jquery.autocomplete.min.js'></script>
+<link rel="stylesheet" type="text/css" href="../css/jquery.autocomplete.css" />
+<link rel="stylesheet" type="text/css" href="../css/thickbox.css" />
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="sidecontent" runat="server">
     <ul>
