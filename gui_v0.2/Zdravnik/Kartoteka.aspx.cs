@@ -20,6 +20,7 @@ namespace Dizajn
         protected void Page_Load(object sender, EventArgs e)
         {
             IPNMP.Pacient[] pacienti = new IPNMP.Pacient[1];
+            
 
             if (Page.Request.QueryString["a"] == "iscemKartoteke" && Page.Request.QueryString["iskalniNiz"] != "") {
                 /* Tukaj dobimo niz in ga vržemo bazi, da najde kartoteke. */
@@ -28,8 +29,15 @@ namespace Dizajn
                 if (int.TryParse(Page.Request.QueryString["iskalniNiz"], out _EMSO))
                 {
                     /* Iščem po emšu */
-                    infoNiz.Text = "EMŠO";
-                    pacienti[0] = IPNMP.Pacient.VrniPoEmšo(_EMSO.ToString());
+                    try
+                    {
+                        infoNiz.Text = "EMŠO";
+                        pacienti[0] = IPNMP.Pacient.VrniPoEmšo(_EMSO.ToString());
+                    }
+                    catch
+                    {
+                        pacienti[0] = null;
+                    }
                 }
                 else
                 {
