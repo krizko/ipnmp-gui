@@ -7,7 +7,8 @@
         <strong>Iskanje kartoteke</strong>
         <form action="Kartoteka.aspx" method="get">
             <input type="hidden" name="a" value="iscemKartoteke" />
-            <input type="text" name="iskalniNiz" maxlength="128" /><br />
+            <input type="text" name="iskalniNiz" maxlength="128" />
+            <br />
             <input type="submit" value="Išči" />
         </form>
     </div>
@@ -18,14 +19,15 @@
             <asp:View ID="intro" runat="server">
                 <h1>Iskanje kartoteke</h1>
                 <p>
-                    Sistem za iskanje kartoteke. Preprosto vpišite emšo ali ime in priimek osebe, ki jo iščete
-                    v za to namenjeno okence na levi. Ko ste željen niz vnesli, pritisnite Išči in sistem vam bo
-                    vrnil rezultate.
+                    Sistem za iskanje kartoteke. Preprosto vpišite emšo ali ime in priimek osebe, ki 
+                    jo iščete v za to namenjeno okence na levi. Ko ste željen niz vnesli, pritisnite 
+                    Išči in sistem vam bo vrnil rezultate.
                 </p>
             </asp:View>
             <asp:View ID="rezultati" runat="server">
                 <h1>Rezultati: prikaz najdenih kartotek</h1>
-                <p><strong>Iskalni niz:</strong> <asp:Label ID="iskalniNiz" runat="server" Text="Label"></asp:Label>&nbsp;&nbsp;(<strong><asp:Label
+                <p><strong>Iskalni niz:</strong> <asp:Label ID="iskalniNiz" runat="server" Text="Label"></asp:Label>
+                    &nbsp;&nbsp;(<strong><asp:Label
                         ID="infoNiz" runat="server"></asp:Label></strong>)</p>
                 <table style="width: 100%;">
                     <tr>
@@ -76,25 +78,37 @@
                 <p>
                     Žal takšna kartoteka ne obstaja.
                 </p>
+                <asp:Label ID="errorInfo" runat="server" Text="Label" ForeColor="Red"></asp:Label>
             </asp:View>
             <asp:View ID="kratoteka" runat="server">
-            <h1>Kartoteka</h1>
+                <h1>
+                    Kartoteka</h1>
                 <table>
                     <tr>
                         <td>
-                            <asp:Label ID="ImePacienta" runat="server" Text="Ime pacienta"></asp:Label><br />
-                            <asp:Label ID="PriimekPacienta" runat="server" Text="Priimek pacienta"></asp:Label><br />
-                            <asp:Label ID="NaslovPacienta" runat="server" Text="Naslov pacienta"></asp:Label><br />
-                            <asp:Label ID="PostaPacienta" runat="server" Text="Pošta pacienta"></asp:Label><br />
+                            <asp:Label ID="ImePacienta" runat="server" Text="Ime pacienta"></asp:Label>
+                            <br />
+                            <asp:Label ID="PriimekPacienta" runat="server" Text="Priimek pacienta"></asp:Label>
+                            <br />
+                            <asp:Label ID="NaslovPacienta" runat="server" Text="Naslov pacienta"></asp:Label>
+                            <br />
+                            <asp:Label ID="PostaPacienta" runat="server" Text="Pošta pacienta"></asp:Label>
+                            <br />
                         </td>
                         <td>
-                            <asp:Label ID="DatumRojstvaPacienta" runat="server" Text="Datum rojstva pacienta"></asp:Label><br />
-                            <asp:Label ID="EmsoPacienta" runat="server" Text="Emso pacienta"></asp:Label><br />
-                            <asp:Label ID="KrvnaSkupinaPacienta" runat="server" Text="Krvna skupina pacienta"></asp:Label><br />
+                            <asp:Label ID="DatumRojstvaPacienta" runat="server" 
+                                Text="Datum rojstva pacienta"></asp:Label>
+                            <br />
+                            <asp:Label ID="EmsoPacienta" runat="server" Text="Emso pacienta"></asp:Label>
+                            <br />
+                            <asp:Label ID="KrvnaSkupinaPacienta" runat="server" 
+                                Text="Krvna skupina pacienta"></asp:Label>
+                            <br />
                         </td>
                     </tr>
                 </table>
-                <h3>Kratka zgodovina pacienta</h3>
+                <h3>
+                    Kratka zgodovina pacienta</h3>
                 <div>
                     % TODO %
                 </div>

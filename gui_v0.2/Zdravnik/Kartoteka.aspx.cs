@@ -16,9 +16,10 @@ namespace Dizajn
     public partial class Kartoteka : System.Web.UI.Page
     {
         protected int _ID;
-        protected int _EMSO;
+        protected long _EMSO;
         protected void Page_Load(object sender, EventArgs e)
         {
+            errorInfo.Text = "";
             IPNMP.Pacient[] pacienti = new IPNMP.Pacient[1];
             
 
@@ -26,16 +27,26 @@ namespace Dizajn
                 /* Tukaj dobimo niz in ga vržemo bazi, da najde kartoteke. */
                 iskalniNiz.Text = Page.Request.QueryString["iskalniNiz"].ToString();
                 infoNiz.Text = "";
-                if (int.TryParse(Page.Request.QueryString["iskalniNiz"], out _EMSO))
+                if (long.TryParse(Page.Request.QueryString["iskalniNiz"], out _EMSO))
                 {
-                    /* Iščem po emšu */
-                    try
+                    if (_EMSO.ToString().Length == 13)
                     {
-                        infoNiz.Text = "EMŠO";
-                        pacienti[0] = IPNMP.Pacient.VrniPoEmšo(_EMSO.ToString());
+                        /* Iščem po emšu */
+                        try
+                        {
+                            infoNiz.Text = "EMŠO";
+                            Console.WriteLine(_EMSO.ToString());
+                            pacienti[0] = IPNMP.Pacient.VrniPoEmšo(_EMSO.ToString());
+                        }
+                        catch
+                        {
+                            pacienti[0] = null;
+                        }
                     }
-                    catch
+                    else
                     {
+                        errorInfo.Text = "EMŠO JE ZAPISAN NEPRAVILNO";
+                        infoNiz.Text = "EMŠO";
                         pacienti[0] = null;
                     }
                 }
@@ -69,7 +80,7 @@ namespace Dizajn
                 }
             }
             else if (Page.Request.QueryString["a"] == "prikaziKartoteko" &&
-                int.TryParse(Page.Request.QueryString["EMSO"], out _EMSO))
+                long.TryParse(Page.Request.QueryString["EMSO"], out _EMSO))
             {
                 pacienti[0] = IPNMP.Pacient.VrniPoEmšo(_EMSO.ToString());
                 // Prikazi samo ce je uspesno pridobil pacienta po emsu
@@ -98,5 +109,18 @@ namespace Dizajn
             /* Sicer pa kartoteko */
             pogledi.SetActiveView(kratoteka);
         }
-    }
+        protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            int _EMSO;
+            if (int.TryParse(Page.Request.QueryString["iskalniNiz"], out _EMSO))
+            {
+                if (_EMSO.ToString().Length != 13) args.IsValid = false;
+                else args.IsValid = true;
+            }
+            else
+            {
+                args.IsValid = true;
+            }
+        }
+}
 }
