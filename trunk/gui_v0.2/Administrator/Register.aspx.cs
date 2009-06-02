@@ -25,6 +25,7 @@ public partial class Register : System.Web.UI.Page
     }
     protected void CreatedUser(object sender, EventArgs e)
     {
+        CreateUserWizard.LoginCreatedUser = false;
         // dodamo vlogo
         DropDownList ddl = (DropDownList)CreateUserWizard.CreateUserStep.ContentTemplateContainer.FindControl("DropDownVloge");
         Roles.AddUserToRole(CreateUserWizard.UserName, ddl.SelectedValue);

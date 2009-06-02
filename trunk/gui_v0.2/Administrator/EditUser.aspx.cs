@@ -99,7 +99,10 @@ public partial class Register : System.Web.UI.Page
 
             //PODATKI
             if (!Email.Text.Equals(user.Email))
+            {
                 user.Email = Email.Text;
+                Membership.UpdateUser(user);
+            }
 
             ProfileCommon profile = Profile.GetProfile(imeUporabnika);
             if (!profile.Naslov.Equals(Naslov.Text))
@@ -124,34 +127,56 @@ public partial class Register : System.Web.UI.Page
     {
         Response.Redirect("Default.aspx");        
     }
+
+    protected string Generate(int i)
+    {
+        Random rGen;
+        string[] strCharacters = { "A","B","C","D","E","F","G",
+        "H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y",
+        "Z","1","2","3","4","5","6","7","8","9","0"};
+
+        rGen = new Random();
+
+        int p = 0;
+        string strPass = "";
+        for (int x = 0; x <= i; x++)
+        {
+            p = rGen.Next(0, 35);
+            strPass += strCharacters[p];
+        }
+        return strPass.ToLower();
+    }
+
     protected void ResetPassword_Click(object sender, EventArgs e)
         {
             imeUporabnika = Request.QueryString["up"];
             MembershipUser user = Membership.GetUser(imeUporabnika);
             if (user != null)//uprabnik pravilno naložen
-            {     
-                string newPassword = user.ResetPassword();
-                string mailSubject = "Novo geslo iz sistema, Intelegentni pomočnik rešilcu";
-                string mailBody = "Vaše geslo na sitemu Intelegentni pomočnik rešilcu je bilo resetirano. \n";
+            {
+                string intermediatePassword = user.ResetPassword();
+                string newPassword = Generate(6);
+
+                user.ChangePassword(intermediatePassword, newPassword);
+
+                string mailSubject = "Novo geslo iz sistema - Inteligentni pomočnik nujne medicinske pomoči";
+                string mailBody = "Vaše geslo na sistemu Inteligentni pomočnik nujne medicinske pomoči je bilo resetirano. \n";
                 mailBody += "Novo geslo se glasi: " + newPassword;
 
                 MailMessage mailMessage = new MailMessage();
-                MailAddress mailAddressFrom = new MailAddress("admin@IP.com", "Admin");
+                MailAddress mailAddressFrom = new MailAddress("joze.baligac@uni-mb.si", "Admin IPNMP");
                 MailAddress mailAddressTo = new MailAddress(Email.Text, imeUporabnika);
 
-                mailMessage.From = mailAddressFrom;                
+                mailMessage.From = mailAddressFrom;
                 mailMessage.To.Add(mailAddressTo);
                 mailMessage.Subject = mailSubject;
                 mailMessage.SubjectEncoding = System.Text.Encoding.UTF8;
                 mailMessage.Body = mailBody;
                 mailMessage.BodyEncoding = System.Text.Encoding.UTF8;
-
-
+               
                 try
                 {
-                    SmtpClient smtpMailObj = new SmtpClient();
+                    SmtpClient smtpMailObj = new SmtpClient("smtp.uni-mb.si");
                     //eg:localhost, 192.168.0.x, replace with your server name
-                    smtpMailObj.Host = "localhost";
                     smtpMailObj.Send(mailMessage);
                     Response.Write("Geslo je bilo uspešno poslano.");
                 }
@@ -160,6 +185,7 @@ public partial class Register : System.Web.UI.Page
                     Response.Write("Napaka, pri pošiljanju emaila.\n");
                     Response.Write(ex.Message);
                 }
+
             }
             else
             {                

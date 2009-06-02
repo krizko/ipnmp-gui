@@ -8,10 +8,10 @@
         <asp:Label ID="LabelUserName2" runat="server" Text="NOT HERE"></asp:Label>
         &nbsp;(admin)
         !</p>
-    <br />
+    <asp:Label ID="Label2" runat="server" ForeColor="Red"></asp:Label>
     <asp:Panel ID="PanelConfirm" runat="server" Height="65px" Visible="False" 
         Width="274px">
-        Ali res želiš izbris uporabnika
+        Ali želiš res izbrisati uporabnika
         <asp:Label ID="LabelUserName" runat="server" Text="NOT HERE"></asp:Label>
         ?<br />
         <asp:Button ID="ButtonYes" runat="server" Height="24px" Text="Da" 
