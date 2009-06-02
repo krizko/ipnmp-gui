@@ -1,12 +1,12 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Master/DizajnWithSideBar.Master" AutoEventWireup="true" CodeFile="Porocila.aspx.cs" Inherits="Dizajn.Porocila" Title="Untitled Page" %>
 <asp:Content ID="Content3" ContentPlaceHolderID="METAHOLDER" runat="server">
-<script type="text/javascript" src="/jquery.js"></script>
-<script type='text/javascript' src='/jquery.bgiframe.min.js'></script>
-<script type='text/javascript' src='/jquery.ajaxQueue.js'></script>
-<script type='text/javascript' src='/thickbox-compressed.js'></script>
-<script type='text/javascript' src='/jquery.autocomplete.js'></script>
-<link rel="stylesheet" type="text/css" href="/jquery.autocomplete.css" />
-<link rel="stylesheet" type="text/css" href="/thickbox.css" />
+<script type="text/javascript" src="../jquery.js"></script>
+<script type='text/javascript' src='../jquery.bgiframe.min.js'></script>
+<script type='text/javascript' src='../jquery.ajaxQueue.js'></script>
+<script type='text/javascript' src='../thickbox-compressed.js'></script>
+<script type='text/javascript' src='../jquery.autocomplete.js'></script>
+<link rel="stylesheet" type="text/css" href="../jquery.autocomplete.css" />
+<link rel="stylesheet" type="text/css" href="../thickbox.css" />
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="sidecontent" runat="server">
     <ul>
@@ -178,6 +178,20 @@
                 </table>
                 </form>
             </div>
+            <script type="text/javascript">
+                $(".ponesrecenec").autocomplete("autocomplete.aspx", {
+		            "width": 260,
+		            "selectFirst": false,
+		            "minChars": 3,
+		            "extraParams": {"type": "ponesrecenec"}
+	            });
+	            $(".ponesrecenec").autocomplete("autocomplete.aspx", {
+		            "width": 260,
+		            "selectFirst": false,
+		            "minChars": 3,
+		            "extraParams": {"type": "zdravnik"}
+	            });
+            </script>
         </asp:View>
 </asp:MultiView>
 </asp:Content>
