@@ -44,13 +44,18 @@ public partial class Zdravnik_Autocomplete : System.Web.UI.Page
 				{
 					P.Ime,
 					P.Priimek,
-					P.EMŠO,
-					P.Naslov.Mesto,
-					P.Naslov.Ulica,
-					P.Naslov.PoštnaŠtevilka.ToString()
+					P.EMŠO
 				};
 				
-				Ret += Delno(s, QString);
+				//Ret += Delno(s, QString);
+				
+				foreach(string Polje in s)
+				{
+					if(Delno(Polje, QString))
+					{
+						Ret += VrniPredlogo(P);
+					}
+				}
 			}
 		}
 		else if(Type == "zdravnik")
@@ -61,6 +66,19 @@ public partial class Zdravnik_Autocomplete : System.Web.UI.Page
 		//
 		// Ok, pošlji kaj mamo
 		Response.Write(Ret);
+	}
+	
+	protected string VrniPredlogo(IPNMP.Pacient P)
+	{
+		string r;
+		
+		r  = P.Ime     + " ";
+		r += P.Priimek + " ";
+		r += P.EMŠO;
+		
+		r += EOL;
+		
+		return r;
 	}
 	
 	protected bool Delno(string Tekst, string Najdi)
