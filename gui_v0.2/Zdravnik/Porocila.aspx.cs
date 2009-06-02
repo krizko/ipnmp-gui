@@ -56,7 +56,7 @@ namespace Dizajn
                 {
                     //UrediDatumBox.Text = Porocilo.Datum.ToString();
                     // KRAJ
-                    if (Page.IsPostBack)
+                    if (!Page.IsPostBack)
                     {
                         UrediHisnaStevilkaBox.Text = "manjka";
                         UrediUlicaBox.Text = "manjka";

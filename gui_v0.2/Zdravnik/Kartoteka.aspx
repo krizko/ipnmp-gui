@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Master/DizajnWithSideBar.Master" AutoEventWireup="true" CodeFile="Kartoteka.aspx.cs" Inherits="Dizajn.Kartoteka" Title="Untitled Page" %>
+<asp:Content ID="Content3" ContentPlaceHolderID="METAHOLDER" runat="server"></asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="sidecontent" runat="server">
     <ul>
         <li><strong><a href="Kartoteka.aspx">Kartoteka</a></strong></li>

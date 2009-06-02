@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Master/DizajnWithSideBar.Master" AutoEventWireup="true" CodeFile="Porocila.aspx.cs" Inherits="Dizajn.Porocila" Title="Untitled Page" %>
+<asp:Content ID="Content3" ContentPlaceHolderID="METAHOLDER" runat="server"></asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="sidecontent" runat="server">
     <ul>
         <li><strong><a href="Porocila.aspx">Poročila</a></strong></li>
