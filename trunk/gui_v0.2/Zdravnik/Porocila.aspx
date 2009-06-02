@@ -3,7 +3,7 @@
     <ul>
         <li><strong><a href="Porocila.aspx">Poročila</a></strong></li>
         <li><a href="?a=dodaj">Dodajanje poročila</a></li>
-        <li><a href="?a=uredi">Urejanje poročila</a></li>
+        <!--<li><a href="?a=uredi">Urejanje poročila</a></li>-->
     </ul>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="mainContent" runat="server">
@@ -13,26 +13,6 @@
     <form id="form1" runat="server">
     <h1>Štala ti mala</h1>
     <div>
-        <%--<table style="border: 1px solid black; width: 100%;">
-            <tr>
-                <th>Datum</th>
-                <th>Ponesrečenec</th>
-                <th>Zdravnik</th>
-                <th>Kraj</th>
-            </tr>
-            <tr>
-                <td>1.5.2008</td>
-                <td>Sandi Križanič</td>
-                <td>Matej Zorko</td>
-                <td>MB</td>
-            </tr>
-            <tr>
-                <td>8.7.2008</td>
-                <td>Igor Žižek</td>
-                <td>Matej Zorko</td>
-                <td>FERI</td>
-            </tr>
-        </table>--%>
         <asp:Repeater ID="Repeater1" runat="server">
             <HeaderTemplate>
                 <table border="1" width="100%">
@@ -51,7 +31,8 @@
                 <td><%# DataBinder.Eval(Container.DataItem, "Pacient.Ime") %> <%# DataBinder.Eval(Container.DataItem, "Pacient.Priimek") %></td>
                 <td><%# DataBinder.Eval(Container.DataItem, "ŠtevilkaPoročila") %></td>
                 <td><%# DataBinder.Eval(Container.DataItem, "OpisDogodka") %></td>
-                <td><a href="?stPorocila=<%# DataBinder.Eval(Container.DataItem, "ŠtevilkaPoročila") %>">Uredi</a></td>
+                <td><a href="?a=uredi&stPorocila=<%# DataBinder.Eval(Container.DataItem, "ŠtevilkaPoročila") %>">
+                    Uredi</a></td>
             </tr>
             </ItemTemplate>
 
@@ -63,6 +44,12 @@
         </div>
     </form>
     </asp:View>
+    
+    
+    
+        <asp:View ID="niPorocila" runat="server">
+            <h1>Ni takšnega poročila</h1>
+        </asp:View>
     
     
     
@@ -83,12 +70,44 @@
                             <asp:TextBox ID="UrediDatumBox" runat="server"></asp:TextBox>
                         </td>
                     </tr>
-                    <tr>
+                    <%--<tr>
                         <td>
                             <asp:Label ID="Kraj" runat="server" Text="Kraj"></asp:Label>
                         </td>
                         <td>
                             <asp:TextBox ID="UrediKrajBox" runat="server"></asp:TextBox>
+                        </td>
+                    </tr>--%>
+                    <tr>
+                        <td>
+                            <asp:Label ID="HisnaStevilka" runat="server" Text="Hišna številka"></asp:Label>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="UrediHisnaStevilkaBox" runat="server"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Label ID="Ulica" runat="server" Text="Ulica"></asp:Label>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="UrediUlicaBox" runat="server"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Label ID="Posta" runat="server" Text="Pošta"></asp:Label>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="UrediPostaBox" runat="server"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Label ID="PostnaST" runat="server" Text="Poštna številka"></asp:Label>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="UrediPostnaStevilkaBox" runat="server"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
