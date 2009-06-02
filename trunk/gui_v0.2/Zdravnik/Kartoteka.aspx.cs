@@ -80,9 +80,9 @@ namespace Dizajn
                 }
             }
             else if (Page.Request.QueryString["a"] == "prikaziKartoteko" &&
-                long.TryParse(Page.Request.QueryString["EMSO"], out _EMSO))
+                int.TryParse(Page.Request.QueryString["id"], out _ID))
             {
-                pacienti[0] = IPNMP.Pacient.VrniPoEmšo(_EMSO.ToString());
+                pacienti[0] = IPNMP.Pacient.VrniPoIdPacient(_ID);
                 // Prikazi samo ce je uspesno pridobil pacienta po emsu
                 if (pacienti[0] != null)
                     polniPrikazKartoteke(pacienti[0]);

@@ -36,13 +36,13 @@
                     <asp:Repeater ID="ponavljalec1" runat="server">
                     <ItemTemplate> 
                     <tr style="background: #ffffff;">
-                        <td>[<a href="Kartoteka.aspx?a=prikaziKartoteko&id=<%#DataBinder.Eval(Container.DataItem, "IdKartoteke")%>">pogled</a>]</td>
+                        <td>[<a href="Kartoteka.aspx?a=prikaziKartoteko&id=<%#DataBinder.Eval(Container.DataItem, "IdPacienta")%>">pogled</a>]</td>
                         <td>
                             <%#DataBinder.Eval(Container.DataItem, "Ime")%>
                             <%#DataBinder.Eval(Container.DataItem, "Priimek")%>
                         </td>
                         <td>
-                            <%#DataBinder.Eval(Container.DataItem, "Emso")%>
+                            <%#DataBinder.Eval(Container.DataItem, "EMŠO")%>
                         </td>
                         <td>
                             <%#DataBinder.Eval(Container.DataItem, "Spol")%>
@@ -51,13 +51,13 @@
                     </ItemTemplate>
                     <AlternatingItemTemplate>
                     <tr style="background: #fafafa;">
-                        <td>[<a href="Kartoteka.aspx?a=prikaziKartoteko&id=<%#DataBinder.Eval(Container.DataItem, "IdKartoteke")%>">pogled</a>]</td>
+                        <td>[<a href="Kartoteka.aspx?a=prikaziKartoteko&id=<%#DataBinder.Eval(Container.DataItem, "IdPacienta")%>">pogled</a>]</td>
                         <td>
                             <%#DataBinder.Eval(Container.DataItem, "Ime")%>
                             <%#DataBinder.Eval(Container.DataItem, "Priimek")%>
                         </td>
                         <td>
-                            <%#DataBinder.Eval(Container.DataItem, "Emso")%>
+                            <%#DataBinder.Eval(Container.DataItem, "EMŠO")%>
                         </td>
                         <td>
                             <%#DataBinder.Eval(Container.DataItem, "Spol")%>
