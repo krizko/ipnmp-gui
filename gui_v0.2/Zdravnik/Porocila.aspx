@@ -179,16 +179,16 @@
                 </form>
             </div>
             <script type="text/javascript">
-                $(".ponesrecenec").autocomplete("autocomplete.aspx", {
+                $(".ponesrecenec").autocomplete("Autocomplete.aspx", {
 		            "width": 260,
 		            "selectFirst": false,
-		            "minChars": 3,
-		            "extraParams": {"type": "ponesrecenec"}
+		            "minChars": 1,
+		            "extraParams": {"type": "pacient"}
 	            });
-	            $(".ponesrecenec").autocomplete("autocomplete.aspx", {
+	            $(".zdravnik").autocomplete("Autocomplete.aspx", {
 		            "width": 260,
 		            "selectFirst": false,
-		            "minChars": 3,
+		            "minChars": 1,
 		            "extraParams": {"type": "zdravnik"}
 	            });
             </script>
