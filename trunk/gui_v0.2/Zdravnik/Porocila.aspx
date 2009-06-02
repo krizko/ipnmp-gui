@@ -40,7 +40,7 @@
                         <th>Datum</th>
                         <th>Ponesrečenec</th>
                         <th>?Zdravnik?</th>
-                        <th>Kraj</th>
+                        <th>Opis nesreče</th>
                         <th>Opcije</th>
                     </tr>
             </HeaderTemplate>

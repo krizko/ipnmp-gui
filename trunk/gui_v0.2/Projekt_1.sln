@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SP - Login", ".", "{9A9EBB02-8A22-4CDF-B976-72DB17C53AF6}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "New Folder", ".", "{9A9EBB02-8A22-4CDF-B976-72DB17C53AF6}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFramework = "3.5"
 		Debug.AspNetCompiler.VirtualPath = "/Projekt_1"
@@ -18,7 +18,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SP - Login", ".", "{9A9EBB0
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "1393"
+		VWDPort = "49596"
 	EndProjectSection
 EndProject
 Global

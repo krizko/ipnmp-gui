@@ -65,6 +65,7 @@ a img {
 /* Menu */
 #menu ul {
 	margin: 0px;
+	margin-right: 3em;
 	padding: 49px 0px 0px 0px;
 	list-style: none;
 	line-height: normal;
