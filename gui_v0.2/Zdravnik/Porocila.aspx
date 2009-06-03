@@ -26,9 +26,9 @@
             <HeaderTemplate>
                 <table border="1" width="100%">
                     <tr>
-                        <th>Datum</th>
+                        <th>Čas dogodka</th>
                         <th>Ponesrečenec</th>
-                        <th>?Zdravnik?</th>
+                        <th>Prisoten</th>
                         <th>Opis nesreče</th>
                         <th>Opcije</th>
                     </tr>
@@ -36,12 +36,12 @@
 
             <ItemTemplate>
             <tr>
-                <td><%--<%# DataBinder.Eval(Container.DataItem, "Datum") %>--%></td>
+                <tr>
+                <td><%# DataBinder.Eval(Container.DataItem, "ČasDogodka") %></td>
                 <td><%# DataBinder.Eval(Container.DataItem, "Pacient.Ime") %> <%# DataBinder.Eval(Container.DataItem, "Pacient.Priimek") %></td>
-                <td><%# DataBinder.Eval(Container.DataItem, "ŠtevilkaPoročila") %></td>
+                <td><%# DataBinder.Eval(Container.DataItem, "Ekipa[0].Ime") %> <%# DataBinder.Eval(Container.DataItem, "Ekipa[0].Priimek") %></td>
                 <td><%# DataBinder.Eval(Container.DataItem, "OpisDogodka") %></td>
-                <td><a href="?a=uredi&stPorocila=<%# DataBinder.Eval(Container.DataItem, "ŠtevilkaPoročila") %>">
-                    Uredi</a></td>
+                <td><a href="?stPorocila=<%# DataBinder.Eval(Container.DataItem, "ŠtevilkaPoročila") %>">Uredi</a></td>
             </tr>
             </ItemTemplate>
 
