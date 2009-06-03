@@ -39,7 +39,6 @@ namespace Dizajn
                 if (Page.Request.QueryString["a"] != null)
                 {
                     IPNMP.Poročilo Porocilo = IPNMP.Poročilo.VrniPorociloPoID(13);
-
                     //UrediDatumBox.Text = Porocilo.Datum.ToString();
                     UrediKrajBox.Text = "manjka mi"; // Porocilo.Kraj;
                     UrediPonesrecenecBox.Text = "manjka mi";
