@@ -25,18 +25,18 @@ namespace Dizajn
                 //UrediDatumBox.Text = Porocilo.Datum.ToString();
 
                 // KRAJ
-                UrediHisnaStevilkaBox.Text = "manjka";
-                UrediUlicaBox.Text = "manjka";
-                UrediPostaBox.Text = "manjka";
-                UrediPostnaStevilkaBox.Text = "manjka";
+                //UrediHisnaStevilkaBox.Text = "manjka";
+                //UrediUlicaBox.Text = "manjka";
+                //UrediPostaBox.Text = "manjka";
+                //UrediPostnaStevilkaBox.Text = "manjka";
 
-                // PONESRECENEC
-                UrediPonesrecenecBox.Text = "manjka mi";
-                UrediEkipaBox.Text = "manjka mi";
-                UrediPrihodBox.Text = Porocilo.StanjePacientaObPrispetju;
-                UrediSprejemBox.Text = Porocilo.StanjePacientaObPrispetjuVBolnišnico;
-                UrediOpisBox.Text = Porocilo.OpisDogodka;
-                UrediAkcijeBox.Text = Porocilo.AkcijeReševalcev;
+                //// PONESRECENEC
+                //UrediPonesrecenecBox.Text = "manjka mi";
+                //UrediEkipaBox.Text = "manjka mi";
+                //UrediPrihodBox.Text = Porocilo.StanjePacientaObPrispetju;
+                //UrediSprejemBox.Text = Porocilo.StanjePacientaObPrispetjuVBolnišnico;
+                //UrediOpisBox.Text = Porocilo.OpisDogodka;
+                //UrediAkcijeBox.Text = Porocilo.AkcijeReševalcev;
                 
                 MultiView.SetActiveView(ViewUrediDodaj);
             }
