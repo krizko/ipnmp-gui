@@ -32,10 +32,9 @@ namespace Dizajn
 
                 // PONESRECENEC
                 UrediPonesrecenecBox.Text = "manjka mi";
-                UrediZdravnikBox.Text = "manjka mi";
+                UrediEkipaBox.Text = "manjka mi";
                 UrediPrihodBox.Text = Porocilo.StanjePacientaObPrispetju;
                 UrediSprejemBox.Text = Porocilo.StanjePacientaObPrispetjuVBolnišnico;
-                UrediDatumSprejemaBox.Text = "manjka mi";
                 UrediOpisBox.Text = Porocilo.OpisDogodka;
                 UrediAkcijeBox.Text = Porocilo.AkcijeReševalcev;
                 
@@ -58,17 +57,30 @@ namespace Dizajn
                     // KRAJ
                     if (!Page.IsPostBack)
                     {
-                        UrediHisnaStevilkaBox.Text = "manjka";
-                        UrediUlicaBox.Text = "manjka";
-                        UrediPostaBox.Text = "manjka";
-                        UrediPostnaStevilkaBox.Text = "manjka";
-
+                        UrediDatumBox.Text = Porocilo.ČasDogodka.ToString();
+                        CasKlicaBox.Text = Porocilo.ČasKlicanjaReševalcev.ToString();
+                        CasNMPBox.Text = Porocilo.ČasPrispetjaReševalcev.ToString();
+                        CasBolnisnicaBox.Text = Porocilo.ČasPrispetjaVBolnišnico.ToString();
+                        UrediHisnaStevilkaBox.Text = Porocilo.Naslov.HišnaŠtevilka;
+                        UrediUlicaBox.Text = Porocilo.Naslov.Ulica;
+                        UrediPostaBox.Text = Porocilo.Naslov.Mesto;
+                        UrediPostnaStevilkaBox.Text = Porocilo.Naslov.PoštnaŠtevilka.ToString();
                         // PONESRECENEC
-                        UrediPonesrecenecBox.Text = "manjka mi";
-                        UrediZdravnikBox.Text = "manjka mi";
+                        UrediPonesrecenecBox.Text = Porocilo.Pacient.Ime + " " + Porocilo.Pacient.Priimek + " (" + Porocilo.Pacient.EMŠO + ")";
+                        string zdravniki = "";
+                        bool prvic = true;
+                        foreach(IPNMP.Zaposleni prisoten in Porocilo.Ekipa)
+                        {
+                            if(prvic)
+                            {
+                                zdravniki = prisoten.Ime + " " + prisoten.Priimek;
+                                prvic = false;
+                            }
+                            zdravniki = zdravniki + ", " + prisoten.Ime + " " + prisoten.Priimek;
+                        }
+                        UrediEkipaBox.Text = zdravniki;
                         UrediPrihodBox.Text = Porocilo.StanjePacientaObPrispetju;
                         UrediSprejemBox.Text = Porocilo.StanjePacientaObPrispetjuVBolnišnico;
-                        UrediDatumSprejemaBox.Text = "manjka mi";
                         UrediOpisBox.Text = Porocilo.OpisDogodka;
                         UrediAkcijeBox.Text = Porocilo.AkcijeReševalcev;
                     }
@@ -98,6 +110,10 @@ namespace Dizajn
                     MultiView.SetActiveView(ViewPregled);
                 }
             }
+        }
+        protected void UrediPonesrecenecBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
 }
 }
