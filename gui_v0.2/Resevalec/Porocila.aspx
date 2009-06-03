@@ -1,10 +1,18 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Master/DizajnWithSideBar.Master" AutoEventWireup="true" CodeFile="Porocila.aspx.cs" Inherits="Dizajn.Porocila" Title="Untitled Page" %>
-<asp:Content ID="Content3" ContentPlaceHolderID="METAHOLDER" runat="server"></asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="METAHOLDER" runat="server">
+<script type="text/javascript" src="../css/jquery.js"></script>
+<script type='text/javascript' src='../css/jquery.bgiframe.min.js'></script>
+<script type='text/javascript' src='../css/jquery.ajaxQueue.js'></script>
+<script type='text/javascript' src='../css/thickbox-compressed.js'></script>
+<script type='text/javascript' src='../css/jquery.autocomplete.min.js'></script>
+<link rel="stylesheet" type="text/css" href="../css/jquery.autocomplete.css" />
+<link rel="stylesheet" type="text/css" href="../css/thickbox.css" />
+</asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="sidecontent" runat="server">
     <ul>
         <li><strong><a href="Porocila.aspx">Poročila</a></strong></li>
         <li><a href="?a=dodaj">Dodajanje poročila</a></li>
-        <li><a href="?a=uredi">Urejanje poročila</a></li>
+        <!--<li><a href="?a=uredi">Urejanje poročila</a></li>-->
     </ul>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="mainContent" runat="server">
@@ -12,28 +20,8 @@
     <asp:View ID="ViewPregled" runat="server">
     
     <form id="form1" runat="server">
-    <h1>Poročila</h1>
+    <h1>Vsa poročila</h1>
     <div>
-        <%--<table style="border: 1px solid black; width: 100%;">
-            <tr>
-                <th>Datum</th>
-                <th>Ponesrečenec</th>
-                <th>Zdravnik</th>
-                <th>Kraj</th>
-            </tr>
-            <tr>
-                <td>1.5.2008</td>
-                <td>Sandi Križanič</td>
-                <td>Matej Zorko</td>
-                <td>MB</td>
-            </tr>
-            <tr>
-                <td>8.7.2008</td>
-                <td>Igor Žižek</td>
-                <td>Matej Zorko</td>
-                <td>FERI</td>
-            </tr>
-        </table>--%>
         <asp:Repeater ID="Repeater1" runat="server">
             <HeaderTemplate>
                 <table border="1" width="100%">
@@ -53,7 +41,8 @@
                 <td><%# DataBinder.Eval(Container.DataItem, "Pacient.Ime") %> <%# DataBinder.Eval(Container.DataItem, "Pacient.Priimek") %></td>
                 <td><%# DataBinder.Eval(Container.DataItem, "Ekipa[0].Ime") %> <%# DataBinder.Eval(Container.DataItem, "Ekipa[0].Priimek") %></td>
                 <td><%# DataBinder.Eval(Container.DataItem, "OpisDogodka") %></td>
-                <td><a href="?stPorocila=<%# DataBinder.Eval(Container.DataItem, "ŠtevilkaPoročila") %>">Uredi</a></td>
+                <td><a href="?a=uredi&stPorocila=<%# DataBinder.Eval(Container.DataItem, "ŠtevilkaPoročila") %>">
+                    Uredi</a></td>
             </tr>
             </ItemTemplate>
 
@@ -68,6 +57,12 @@
     
     
     
+        <asp:View ID="niPorocila" runat="server">
+            <h1>Ni takšnega poročila</h1>
+        </asp:View>
+    
+    
+    
     <asp:View ID="NiPorocil" runat="server">
         <asp:Label ID="Label7" runat="server" Text="Žal trenutno ni poročil!"></asp:Label>
     </asp:View>
@@ -79,18 +74,34 @@
                 <table width="100%">
                     <tr>
                         <td>
-                            <asp:Label ID="Datum" runat="server" Text="Datum"></asp:Label>
+                            <asp:Label ID="Datum" runat="server" Text="Čas dogodka"></asp:Label>
                         </td>
                         <td>
-                            <asp:TextBox ID="UrediDatumBox" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="UrediDatumBox" runat="server" Width="95%"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <asp:Label ID="Kraj" runat="server" Text="Kraj"></asp:Label>
+                            <asp:Label ID="Cas1" runat="server" Text="Čas klica"></asp:Label>
                         </td>
                         <td>
-                            <asp:TextBox ID="UrediKrajBox" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="CasKlicaBox" runat="server" Width="95%"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Label ID="Cas2" runat="server" Text="Čas prispetja NMP"></asp:Label>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="CasNMPBox" runat="server" Width="95%"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Label ID="Cas3" runat="server" Text="Čas prispetja v bolnišnico"></asp:Label>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="CasBolnisnicaBox" runat="server" Width="95%"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
@@ -98,15 +109,61 @@
                             <asp:Label ID="Ponesrecenec" runat="server" Text="Ponesrečenec"></asp:Label>
                         </td>
                         <td>
-                            <asp:TextBox ID="UrediPonesrecenecBox" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="UrediPonesrecenecBox" runat="server" class="ponesrecenec" 
+                                ontextchanged="UrediPonesrecenecBox_TextChanged" Width="95%"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <%--<tr>
+                        <td>
+                            <asp:Label ID="Kraj" runat="server" Text="Kraj"></asp:Label>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="UrediKrajBox" runat="server"></asp:TextBox>
+                        </td>
+                    </tr>--%>
+                    <tr>
+                        <td>
+                            <asp:Label ID="HisnaStevilka" runat="server" Text="Hišna številka"></asp:Label>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="UrediHisnaStevilkaBox" runat="server" Width="95%"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <asp:Label ID="Zdravnik" runat="server" Text="Zdravnik"></asp:Label>
+                            <asp:Label ID="Ulica" runat="server" Text="Ulica"></asp:Label>
                         </td>
                         <td>
-                            <asp:TextBox ID="UrediZdravnikBox" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="UrediUlicaBox" runat="server" Width="95%"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Label ID="Posta" runat="server" Text="Pošta"></asp:Label>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="UrediPostaBox" runat="server" Width="95%"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Label ID="PostnaST" runat="server" Text="Poštna številka"></asp:Label>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="UrediPostnaStevilkaBox" runat="server" Width="95%"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                            <caption>
+                                &nbsp;</td>
+                            </caption>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Label ID="Zdravnik" runat="server" Text="Ekipa"></asp:Label>
+                        </td>
+                        <td>
+                            <asp:TextBox class="zdravnik" ID="UrediEkipaBox" runat="server" Width="95%"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
@@ -114,7 +171,7 @@
                             <asp:Label ID="Stanje_opr" runat="server" Text="Stanje ob prihodu NMP"></asp:Label>
                         </td>
                         <td>
-                            <asp:TextBox ID="UrediPrihodBox" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="UrediPrihodBox" runat="server" Width="95%"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
@@ -122,23 +179,24 @@
                             <asp:Label ID="Stanje_ob_sprejetju" runat="server" Text="Stanje ob sprejemu"></asp:Label>
                         </td>
                         <td>
-                            <asp:TextBox ID="UrediSprejemBox" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="UrediSprejemBox" runat="server" Width="95%"></asp:TextBox>
                         </td>
                     </tr>
-                    <tr>
+                    <%--<tr>
                         <td>
                             <asp:Label ID="Label6" runat="server" Text="Datum Sprejema"></asp:Label>
                         </td>
                         <td>
                             <asp:TextBox ID="UrediDatumSprejemaBox" runat="server"></asp:TextBox>
                         </td>
-                    </tr>
+                    </tr>--%>
                     <tr>
                         <td>
                             <asp:Label ID="Opis" runat="server" Text="Opis dogodka:"></asp:Label>
                         </td>
                         <td>
-                            <asp:TextBox ID="UrediOpisBox" runat="server" Height="204px" Width="95%"></asp:TextBox>
+                            <asp:TextBox ID="UrediOpisBox" runat="server" Height="204px" Width="95%" 
+                                TextMode="MultiLine"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
@@ -146,12 +204,27 @@
                             <asp:Label ID="Akcije" runat="server" Text="Akcije:"></asp:Label>
                         </td>
                         <td>
-                            <asp:TextBox ID="UrediAkcijeBox" runat="server" Height="204px" Width="95%"></asp:TextBox>
+                            <asp:TextBox ID="UrediAkcijeBox" runat="server" Height="204px" Width="95%" 
+                                TextMode="MultiLine"></asp:TextBox>
                         </td>
                     </tr>
                 </table>
                 </form>
             </div>
+            <script type="text/javascript">
+                $(".ponesrecenec").autocomplete("Autocomplete.aspx", {
+		            "width": 260,
+		            "selectFirst": false,
+		            "minChars": 1,
+		            "extraParams": {"type": "pacient"}
+	            });
+	            $(".zdravnik").autocomplete("Autocomplete.aspx", {
+		            "width": 260,
+		            "selectFirst": false,
+		            "minChars": 1,
+		            "extraParams": {"type": "zdravnik"}
+	            });
+            </script>
         </asp:View>
 </asp:MultiView>
 </asp:Content>
