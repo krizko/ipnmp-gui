@@ -60,6 +60,26 @@ public partial class Zdravnik_Autocomplete : System.Web.UI.Page
 		}
 		else if(Type == "zdravnik")
 		{
+            IPNMP.Zaposleni[] Zaposleni = IPNMP.Zaposleni.VrniVse();
+            foreach (IPNMP.Zaposleni Z in Zaposleni)
+            {
+                string[] s =
+				{
+					Z.Ime,
+					Z.Priimek,
+					Z.EMŠO
+				};
+
+                //Ret += Delno(s, QString);
+
+                foreach (string Polje in s)
+                {
+                    if (Delno(Polje, QString))
+                    {
+                        Ret += VrniPredlogoZ(Z);
+                    }
+                }
+            }
 			// ni ga!
 		}
 		
@@ -80,6 +100,18 @@ public partial class Zdravnik_Autocomplete : System.Web.UI.Page
 		
 		return r;
 	}
+    protected string VrniPredlogoZ(IPNMP.Zaposleni Z)
+    {
+        string r;
+
+        r = Z.Ime + " ";
+        r += Z.Priimek + " ";
+        r += Z.EMŠO;
+
+        r += EOL;
+
+        return r;
+    }
 	
 	protected bool Delno(string Tekst, string Najdi)
 	{
