@@ -73,9 +73,9 @@
                 <form ID="form2" runat="server">
                 <table width="100%">
                     <tr>
-                        <td>
+                        <td style="width: 350px;">
                             <asp:Label ID="Datum" runat="server" Text="Čas dogodka"></asp:Label>
-                        </td>
+                            &nbsp;(DD.MM.YYYY HH:II:SS)</td>
                         <td>
                             <asp:TextBox ID="UrediDatumBox" runat="server" Width="95%"></asp:TextBox>
                         </td>
@@ -83,7 +83,7 @@
                     <tr>
                         <td>
                             <asp:Label ID="Cas1" runat="server" Text="Čas klica"></asp:Label>
-                        </td>
+                            &nbsp;(DD.MM.YYYY HH:II:SS)</td>
                         <td>
                             <asp:TextBox ID="CasKlicaBox" runat="server" Width="95%"></asp:TextBox>
                         </td>
@@ -91,7 +91,7 @@
                     <tr>
                         <td>
                             <asp:Label ID="Cas2" runat="server" Text="Čas prispetja NMP"></asp:Label>
-                        </td>
+                            &nbsp;(DD.MM.YYYY HH:II:SS)</td>
                         <td>
                             <asp:TextBox ID="CasNMPBox" runat="server" Width="95%"></asp:TextBox>
                         </td>
@@ -99,7 +99,7 @@
                     <tr>
                         <td>
                             <asp:Label ID="Cas3" runat="server" Text="Čas prispetja v bolnišnico"></asp:Label>
-                        </td>
+                            &nbsp;(DD.MM.YYYY HH:II:SS)</td>
                         <td>
                             <asp:TextBox ID="CasBolnisnicaBox" runat="server" Width="95%"></asp:TextBox>
                         </td>
@@ -107,7 +107,7 @@
                     <tr>
                         <td>
                             <asp:Label ID="Ponesrecenec" runat="server" Text="Ponesrečenec"></asp:Label>
-                        </td>
+                            &nbsp;(ime priimek emšo)</td>
                         <td>
                             <asp:TextBox ID="UrediPonesrecenecBox" runat="server" class="ponesrecenec" 
                                 ontextchanged="UrediPonesrecenecBox_TextChanged" Width="95%"></asp:TextBox>
@@ -153,17 +153,16 @@
                             <asp:TextBox ID="UrediPostnaStevilkaBox" runat="server" Width="95%"></asp:TextBox>
                         </td>
                     </tr>
-                    <tr>
-                            <caption>
-                                &nbsp;</td>
-                            </caption>
+                    <caption>
+                        &nbsp;</td>
+                    </caption>
                     </tr>
                     <tr>
                         <td>
                             <asp:Label ID="Zdravnik" runat="server" Text="Ekipa"></asp:Label>
-                        </td>
+                            &nbsp;(ime priimek emšo)</td>
                         <td>
-                            <asp:TextBox class="zdravnik" ID="UrediEkipaBox" runat="server" Width="95%"></asp:TextBox>
+                            <asp:TextBox ID="UrediEkipaBox" runat="server" class="zdravnik" Width="95%"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
@@ -209,6 +208,12 @@
                         </td>
                     </tr>
                 </table>
+<<<<<<< .mine
+                <center><asp:Button ID="Button1" runat="server" Text="Button" 
+                        onclick="Button1_Click" /></center>
+=======
+                    <input type="submit" value="Shrani" />
+>>>>>>> .r29
                 </form>
             </div>
             <script type="text/javascript">
@@ -221,10 +226,14 @@
 	            $(".zdravnik").autocomplete("Autocomplete.aspx", {
 		            "width": 260,
 		            "selectFirst": false,
+		            "multiple": true,
 		            "minChars": 1,
 		            "extraParams": {"type": "zdravnik"}
 	            });
             </script>
+        </asp:View>
+        <asp:View ID="redirect" runat="server">
+            <meta HTTP-EQUIV="REFRESH" content="0; url=?a">
         </asp:View>
 </asp:MultiView>
 </asp:Content>
