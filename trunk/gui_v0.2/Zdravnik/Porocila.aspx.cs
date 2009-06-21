@@ -467,9 +467,5 @@ namespace Dizajn
         {
 
         }
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            //ko bodo metode bo to gumb za potrditev...
-        }
 }
 }

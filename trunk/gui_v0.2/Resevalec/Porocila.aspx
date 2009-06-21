@@ -208,12 +208,7 @@
                         </td>
                     </tr>
                 </table>
-<<<<<<< .mine
-                <center><asp:Button ID="Button1" runat="server" Text="Button" 
-                        onclick="Button1_Click" /></center>
-=======
-                    <input type="submit" value="Shrani" />
->>>>>>> .r29
+                 <center><input type="submit" value="Shrani" /></center>
                 </form>
             </div>
             <script type="text/javascript">

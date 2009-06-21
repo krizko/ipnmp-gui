@@ -208,7 +208,7 @@
                         </td>
                     </tr>
                 </table>
-                    <input type="submit" value="Shrani" />
+                 <center><input type="submit" value="Shrani" /></center>
                 </form>
             </div>
             <script type="text/javascript">
